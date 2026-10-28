@@ -1,0 +1,22 @@
+NEON SALVAGE - START HERE
+
+1. Extract this ZIP.
+2. Open a terminal in the extracted folder (the folder with package.json).
+3. Run: npm install
+4. Run: npm run dev
+5. Open the local URL shown by Vite, normally http://localhost:5173.
+
+The game runs with built-in procedural 3D models immediately.
+
+IMPORTANT FOR THE VI3W INTERVIEW ASSIGNMENT:
+Generate two separate models at https://app.vi3w.in and export them as GLB:
+- Hovercraft -> public/models/hovercraft.glb
+- Energy crystal -> public/models/energy-crystal.glb
+
+The app is already programmed to load these exact paths. The built-in models are fallbacks and do not replace the required Vi3W-generated assets.
+
+See NEON_SALVAGE_Project_Guide.docx (shared separately), README.md and docs/VI3W_ASSET_PROMPTS.md for full instructions.
+
+Build check before hosting:
+- npm run build
+- output folder: dist

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070b18" />
+    <meta name="description" content="Neon Salvage — a futuristic 3D arcade runner built with Three.js and custom 3D assets." />
+    <title>NEON SALVAGE — The Last Energy Run</title>
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="game-canvas" aria-label="Neon Salvage 3D game canvas"></canvas>
+
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Neon Salvage home">
+          <span class="brand-mark"><span></span><span></span><span></span></span>
+          <span class="brand-copy"><strong>NEON<span> SALVAGE</span></strong><small>THE LAST ENERGY RUN</small></span>
+        </a>
+        <div class="hud" id="hud" aria-live="polite">
+          <div class="hud-item"><span class="hud-label">SCORE</span><strong id="score-value">0000</strong></div>
+          <div class="hud-separator"></div>
+          <div class="hud-item"><span class="hud-label">ENERGY CELLS</span><strong class="cyan" id="crystal-value">00</strong></div>
+          <div class="hud-separator"></div>
+          <div class="hud-item timer-item"><span class="hud-label">TIME LEFT</span><strong id="time-value">60<span>s</span></strong></div>
+        </div>
+        <button class="icon-button" id="pause-button" type="button" aria-label="Pause game" title="Pause game" hidden>
+          <span class="pause-glyph"><i></i><i></i></span>
+        </button>
+      </header>
+
+      <div class="side-label side-label-left"><span class="live-dot"></span> SYSTEM ONLINE <span class="side-divider">/</span> SECTOR 07</div>
+      <div class="side-label side-label-right">MK.04 <span class="side-divider">/</span> DEEP SPACE TRANSIT</div>
+
+      <section class="overlay" id="start-screen" aria-labelledby="game-title">
+        <div class="overlay-card start-card">
+          <div class="eyebrow"><span class="eyebrow-line"></span> ARCADE FLIGHT SIMULATOR <span class="eyebrow-line"></span></div>
+          <h1 id="game-title">NEON<br /><span>SALVAGE</span></h1>
+          <p class="subtitle">The last energy run.</p>
+          <p class="intro-copy">The grid is dying. Pilot your hovercraft through the ruins, collect energy cells and make every second count.</p>
+          <div class="feature-row">
+            <div><span class="feature-icon">↔</span><span>DODGE</span></div>
+            <div><span class="feature-icon crystal-icon">◇</span><span>COLLECT</span></div>
+            <div><span class="feature-icon">⌁</span><span>SURVIVE</span></div>
+          </div>
+          <button class="primary-button" id="start-button" type="button"><span>START RUN</span><b>↗</b></button>
+          <div class="start-footnote"><span class="keycap">A</span><span class="keycap">D</span> or <span class="keycap">←</span><span class="keycap">→</span> to move <span class="footnote-divider">·</span> 60 SECOND RUN</div>
+        </div>
+      </section>
+
+      <section class="overlay hidden" id="pause-screen" aria-labelledby="pause-title">
+        <div class="overlay-card compact-card">
+          <div class="eyebrow"><span class="eyebrow-line"></span> FLIGHT CONTROL <span class="eyebrow-line"></span></div>
+          <h2 id="pause-title">RUN <span>PAUSED</span></h2>
+          <p class="intro-copy">Take a breath, pilot. The grid can wait.</p>
+          <button class="primary-button" id="resume-button" type="button"><span>RESUME RUN</span><b>↗</b></button>
+          <button class="text-button" id="quit-button" type="button">END CURRENT RUN</button>
+        </div>
+      </section>
+
+      <section class="overlay hidden" id="gameover-screen" aria-labelledby="gameover-title">
+        <div class="overlay-card compact-card">
+          <div class="eyebrow"><span class="eyebrow-line"></span> TRANSMISSION RECEIVED <span class="eyebrow-line"></span></div>
+          <h2 id="gameover-title">RUN <span>COMPLETE</span></h2>
+          <p class="intro-copy" id="result-message">The grid will remember you.</p>
+          <div class="result-stats">
+            <div><span>FINAL SCORE</span><strong id="final-score">0000</strong></div>
+            <div><span>ENERGY CELLS</span><strong id="final-crystals" class="cyan">00</strong></div>
+            <div><span>PERSONAL BEST</span><strong id="best-score">0000</strong></div>
+          </div>
+          <button class="primary-button" id="restart-button" type="button"><span>RUN IT BACK</span><b>↗</b></button>
+          <button class="text-button" id="menu-button" type="button">BACK TO TITLE</button>
+        </div>
+      </section>
+
+      <div class="mobile-controls" id="mobile-controls" aria-label="Touch controls">
+        <button id="left-button" type="button" aria-label="Move left"><span>←</span></button>
+        <button id="right-button" type="button" aria-label="Move right"><span>→</span></button>
+      </div>
+
+      <footer class="bottom-bar">
+        <span><i class="footer-pulse"></i> NEURAL LINK <strong>STABLE</strong></span>
+        <span class="bottom-center">VI3W ASSET EXPERIMENT <b>×</b> THREE.JS</span>
+        <span class="control-hint">MOVE <strong>A / D</strong> <span>OR</span> <strong>← / →</strong> <i class="hint-divider"></i> PAUSE <strong>P</strong></span>
+      </footer>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
